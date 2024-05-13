@@ -14,6 +14,10 @@ public class MathFunction {
     }
 
     public static double division(double first, double second) {
-        return first / second;
+        if (second == 0) {
+            return 0;
+        } else {
+            return first / second;
+        }
     }
 }

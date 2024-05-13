@@ -11,7 +11,7 @@ class FitTest {
         short input = 180;
         double expected = 92;
         double delta = 0.01;
-        double output = Fit.manWeight(input);
+        double output = Fit.calculateManWeight(input);
         assertThat(output).isEqualTo(expected, withPrecision(delta));
     }
 
@@ -20,7 +20,7 @@ class FitTest {
         short input = 170;
         double expected = 69;
         double delta = 0.01;
-        double output = Fit.womanWeight(input);
+        double output = Fit.calculateWomanWeight(input);
         assertThat(output).isEqualTo(expected, withPrecision(delta));
     }
 }
