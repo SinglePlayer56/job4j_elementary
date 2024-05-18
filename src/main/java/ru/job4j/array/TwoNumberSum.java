@@ -4,14 +4,14 @@ public class TwoNumberSum {
     public static int[] getIndexes(int[] array, int target) {
         int i = 0;
         int j = array.length - 1;
-        while (i < array.length - 1) {
-            if (array[i] + array[j] == target) {
+        while (i < j) {
+            int sum = array[i] + array[j];
+            if (sum == target) {
                 return new int[]{i, j};
-            }
-            j--;
-            if (j == i) {
+            } else if (sum < target) {
                 i++;
-                j = array.length - 1;
+            } else {
+                j--;
             }
         }
         return new int[0];
