@@ -23,4 +23,21 @@ class FitTest {
         double output = Fit.calculateWomanWeight(input);
         assertThat(output).isEqualTo(expected, withPrecision(delta));
     }
+
+    @Test
+    void whenManLessThanBaseThenException() {
+        short height = 99;
+        assertThatThrownBy(() -> Fit.calculateManWeight(height))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Height must be greater than 100");
+    }
+
+    @Test
+    void whenWoman167Then65Dot55() {
+        short height = 167;
+        double expected = 65.55;
+        double delta = 0.01;
+        double result = Fit.calculateWomanWeight(height);
+        assertThat(result).isEqualTo(expected, withPrecision(delta));
+    }
 }
